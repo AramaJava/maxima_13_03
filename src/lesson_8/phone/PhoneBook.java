@@ -128,7 +128,7 @@ public class PhoneBook {
             case '/' -> res = num1 / num2;
             default -> System.out.println("Не понятная операция!");
         }
-        System.out.printf("Результат операции %s", res);
+        System.out.printf("Результат операции: %s", res);
     }
 
 
