@@ -215,9 +215,8 @@ public class Main {
             System.out.println("зелёный");
         } else if (a == 3) {
             System.out.println("жёлтый");
-        } else if (a == 4) {
+        } else
             System.out.println("красный");
-        }
     }
 
 }
