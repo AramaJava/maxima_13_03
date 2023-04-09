@@ -11,11 +11,23 @@ public class Main {
         1.1. Программа вводит строки, пока пользователь не введёт пустую строку (нажав enter).
              Потом она конвертирует строки в верхний регистр (Мама превращается в МАМА) и выводит их на экран.
 
-        String str ="старт";
+        String str ="стартовое не пустое значение";
         Scanner scan = new Scanner(System.in);
+
+        int rows = 0;
+        String str0[] = new String[100];
+
         while (!str.isEmpty()) {
+            System.out.println("Введите строку");
             str = scan.nextLine();
-            System.out.println(str.toUpperCase());
+            if (!str.isEmpty()) {
+                str0[rows]=str;
+                rows++;
+            }
+        }
+
+        for (int i = 0; i < rows ; i++) {
+            System.out.println(str0[i].toUpperCase());
         }
 */
 /*
@@ -25,9 +37,11 @@ public class Main {
              Программа выводит слова на экран.
 */
         /*
-              String str1 ="старт";
+
+        String str1 ="стартовое не пустое значение";
         Scanner scan1 = new Scanner(System.in);
         while (!str1.isEmpty()) {
+            System.out.println("Введите строку");
             str1 = scan1.nextLine();
             if (str1.length() % 2 == 0) {
                 System.out.println(str1.concat(str1));
@@ -44,6 +58,7 @@ public class Main {
 
         for (int i = 0; i < 5 ; i++) {
             System.out.printf("Введите строку %d:",i+1);
+
             str2[i] = scan2.nextLine();
         }
 
@@ -78,6 +93,7 @@ public class Main {
         Scanner scan3 = new Scanner(System.in);
 
         for (int i = 0; i < str3.length - 2; i++) {
+            System.out.println("Введите строку");
             str3[i] = scan3.nextLine();
         }
         for (int i = str3.length-1; i >= 0; i--) {
@@ -101,11 +117,13 @@ public class Main {
 
 
 */
+        /*
         String[] str5 = new String[6];
         Scanner scan5 = new Scanner(System.in);
 
         for (int i = 0; i < str5.length; i++) {
             System.out.printf("Введите строку %d:", i + 1);
+            System.out.println("Введите строку");
             str5[i] = scan5.nextLine();
         }
 
@@ -116,9 +134,11 @@ public class Main {
                 }
         }
 
-        for (String str : str5) {
-            System.out.println(str);
+        for (String str6 : str5) {
+            System.out.println(str6);
+
         }
+*/
     }
 
 

@@ -35,7 +35,7 @@ public class Main {
         2. Ввести с клавиатуры 8 строк и сохранить их в массив.
         3. Вывести содержимое всего массива (10 элементов) на экран в обратном порядке. Каждый элемент - с новой строки.
 */
-
+/*
         String[] str5 = new String[10];
 
         Scanner scan = new Scanner(System.in);
@@ -180,7 +180,7 @@ public class Main {
             nums1[i]= scan.nextInt();
         }
 
- //       int[] nums1 = new int[]{64, 42, 73, 41, 31, 53, 16, 24, 57, 42, 74, 55, 36, 33, 56, 22, 88, 34, 19, 69};
+    //    int[] nums1 = new int[]{64, 42, 73, 41, 31, 53, 16, 24, 57, 42, 74, 55, 36, 33, 56, 22, 88, 34, 19, 69};
         int max = nums1[0], min = nums1[0];
         for (int i = 1; i < nums1.length; i++) {
             if (nums1[i] > max) {
@@ -191,10 +191,10 @@ public class Main {
             }
 
         }
-        System.out.println(max);
-        System.out.println(min);
+        System.out.printf("%d %d ", max, min);
 
- */
+*/
+
         /*
         7
 
