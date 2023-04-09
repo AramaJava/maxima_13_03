@@ -36,32 +36,38 @@ public class Main {
         2. Ввести с клавиатуры 8 строк и сохранить их в массив.
         3. Вывести содержимое всего массива (10 элементов) на экран в обратном порядке. Каждый элемент - с новой строки.
 */
-       /* РЕШЕНИЕ ЗАДАЧИ 1
+        /* РЕШЕНИЕ ЗАДАЧИ 1 */
+        /*
         String[] str5 = new String[10];
 
         Scanner scan = new Scanner(System.in);
         for (int i = 0; i < str5.length-2; i++) {
+            System.out.println("Введите строку");
             str5[i] = scan.nextLine();
         }
 
-        int j = str5.length-1;
-        for (int i = 0; i < str5.length; i++) {
-            System.out.println(str5[j]);
-            j--;
+
+        for (int i = str5.length-1; i>=0; i--) {
+            System.out.println(str5[i]);
         }
 
+*/
 
         /* ЗАДАЧА 2
 
         2.1. Создай массив на 10 чисел
         2.2. Считай с консоли 10 чисел и заполни ими массив
         2.3. Найти максимальное число из элементов массива
-*/
-/*
+        */
+
+        // РЕШЕНИЕ
+        /*
+
         int[] nums5 = new int[10];
 
         Scanner scan = new Scanner(System.in);
         for (int i = 0; i < nums5.length; i++) {
+            System.out.println("Введите число");
             nums5[i] = scan.nextInt();
         }
 
@@ -76,10 +82,6 @@ public class Main {
         }
         System.out.println(max);
 */
-
-
-
-
 
         /*
         ЗАДАЧА 3
@@ -99,6 +101,7 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         for (int i = 0; i < str4.length; i++) {
+            System.out.println("Введите строку");
             str4[i] = scan.nextLine();
             nums4[i] = str4[i].length();
         }
@@ -108,6 +111,7 @@ public class Main {
             System.out.println(nums);
         }
 */
+
   /*
        ЗАДАЧА 4
 
@@ -120,6 +124,7 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         for (int i = 0; i < nums3.length; i++) {
+            System.out.println("Введите строку");
             nums3[i] = scan.nextInt();
         }
 
@@ -143,6 +148,7 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         for (int i = 0; i < nums2.length; i++) {
+            System.out.println("Введите число");
             nums2[i] = scan.nextInt();
         }
 
@@ -178,6 +184,7 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         for (int i = 0; i < nums1.length ; i++) {
+            System.out.println("Введите число");
             nums1[i]= scan.nextInt();
         }
 
@@ -206,6 +213,7 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         for (int i = 0; i < nums.length ; i++) {
+            System.out.println("Введите число");
             nums[i]= scan.nextInt();
         }
 

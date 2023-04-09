@@ -123,7 +123,6 @@ public class Main {
 
         for (int i = 0; i < str5.length; i++) {
             System.out.printf("Введите строку %d:", i + 1);
-            System.out.println("Введите строку");
             str5[i] = scan5.nextLine();
         }
 
