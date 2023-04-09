@@ -29,19 +29,7 @@ public class Main {
 
         phoneBook.deleteContact("vasiliy");
 
-        System.out.println(phoneBook.exp3(5));
-        System.out.println(phoneBook.isNumberGreater5(6));
-        System.out.println(phoneBook.lesserNum(7,3));
-        phoneBook.SuperOperation(7,3);
 
-//  Метод main() - должен считывать 2 числа с помощью getInt()),
-//  считать операцию (с помощью getOperation(),
-//  передать все методу calc() и вывести на экран результат.
-
-        int a = phoneBook.getInt();
-        int b = phoneBook.getInt();
-        char c = phoneBook.getOperation();
-        phoneBook.calc(a,b,c);
 
     }
 }

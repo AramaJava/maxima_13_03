@@ -11,54 +11,56 @@ public class Main {
         1.1. Программа вводит строки, пока пользователь не введёт пустую строку (нажав enter).
              Потом она конвертирует строки в верхний регистр (Мама превращается в МАМА) и выводит их на экран.
 */
-        /* РЕШЕНИЕ
+        // РЕШЕНИЕ
 
-        String str ="стартовое не пустое значение";
+        String str = "стартовое не пустое значение";
         Scanner scan = new Scanner(System.in);
 
         int rows = 0;
-        String str0[] = new String[100];
+        String [] str0 = new String[100];
 
         while (!str.isEmpty()) {
             System.out.println("Введите строку");
             str = scan.nextLine();
             if (!str.isEmpty()) {
-                str0[rows]=str;
+                str0[rows] = str;
                 rows++;
             }
         }
 
-        for (int i = 0; i < rows ; i++) {
+        for (int i = 0; i < rows; i++) {
             System.out.println(str0[i].toUpperCase());
         }
-*/
+
 /*      ЗАДАЧА
         1.2. Новая задача: Программа вводит строки, пока пользователь не введёт пустую строку (нажав enter).
              Если в строке чётное число букв, строка удваивается, если нечётное - утраивается.
              Программа выводит слова на экран.
 */
-        /* РЕШЕНИЕ
+        // РЕШЕНИЕ
 
-        String str1 ="стартовое не пустое значение";
+        String str1 = "стартовое не пустое значение";
         Scanner scan1 = new Scanner(System.in);
         while (!str1.isEmpty()) {
             System.out.println("Введите строку");
             str1 = scan1.nextLine();
             if (str1.length() % 2 == 0) {
                 System.out.println(str1.concat(str1));
-            }else {System.out.println(str1.concat(str1).concat(str1));}
+            } else {
+                System.out.println(str1.concat(str1).concat(str1));
+            }
         }
-*/
+
         /* ЗАДАЧА
         2. Ввести 5 строк с консоли, найти самую короткую и самую длинную строки. Вывести найденные строки и их длину.
-*/
-       /* РЕШЕНИЕ
+         */
+        // РЕШЕНИЕ
 
         String[] str2 = new String[5];
         Scanner scan2 = new Scanner(System.in);
 
-        for (int i = 0; i < 5 ; i++) {
-            System.out.printf("Введите строку %d:",i+1);
+        for (int i = 0; i < 5; i++) {
+            System.out.printf("Введите строку %d:", i + 1);
 
             str2[i] = scan2.nextLine();
         }
@@ -75,32 +77,28 @@ public class Main {
             }
 
         }
-        System.out.printf("Самое длинное слово %s, c длиной %d", maxStr ,maxStr.length());
+        System.out.printf("Самое длинное слово %s, c длиной %d", maxStr, maxStr.length());
         System.out.println();
-        System.out.printf("Самое короткое слово %s, c длиной %d", minStr ,minStr.length());
-
-        */
-
-
+        System.out.printf("Самое короткое слово %s, c длиной %d", minStr, minStr.length());
 
         /* ЗАДАЧА 3
           3.1. Создать массив на 10 строк.
           3.2. Ввести с клавиатуры 8 строк и сохранить их в массив.
           3.3. Вывести содержимое всего массива (10 элементов) на экран в обратном порядке. Каждый элемент - с новой строки.
         */
-        /* РЕШЕНИЕ
+        // РЕШЕНИЕ
 
-        String[] str3 = new String[10];
+        String[] str4 = new String[10];
         Scanner scan3 = new Scanner(System.in);
 
-        for (int i = 0; i < str3.length - 2; i++) {
+        for (int i = 0; i < str4.length - 2; i++) {
             System.out.println("Введите строку");
-            str3[i] = scan3.nextLine();
+            str4[i] = scan3.nextLine();
         }
-        for (int i = str3.length-1; i >= 0; i--) {
-            System.out.println(str3[i]);
+        for (int i = str4.length - 1; i >= 0; i--) {
+            System.out.println(str4[i]);
         }
-*/
+
         /* ЗАДАЧА 4
             4.1. Создать массив на 10 строк.
             4.2. Создать массив на 10 чисел.
@@ -108,15 +106,27 @@ public class Main {
             4.4. В каждую ячейку массива чисел записать длину строки из массива строк, индекс/номер ячейки
                  которой совпадает с текущим индексом из массива чисел.
 */
-        // РЕШЕНИЕ - это повтор задачи - сделал в lesson 5
+        // РЕШЕНИЕ - это повтор задачи - сделал в lesson 5, сюда скопипастил.
+        String[] str44 = new String[10];
+        int[] nums4 = new int[10];
+
+        Scanner scan22 = new Scanner(System.in);
+        for (int i = 0; i < str4.length; i++) {
+            System.out.println("Введите строку");
+            str44[i] = scan22.nextLine();
+            nums4[i] = str44[i].length();
+        }
+
+        for (int nums : nums4
+        ) {
+            System.out.println(nums);
+        }
 
         /* ЗАДАЧА 5
             5.1. Считать 6 строк и заполнить ими массив strings.
             5.2. Удалить повторяющиеся строки из массива strings, заменив их на null (null должны быть не строками "null").
-
-
-*/
-        /* РЕШЕНИЕ
+        */
+        // РЕШЕНИЕ
 
         String[] str5 = new String[6];
         Scanner scan5 = new Scanner(System.in);
@@ -137,9 +147,7 @@ public class Main {
             System.out.println(str6);
 
         }
-*/
+
     }
-
-
 }
 
