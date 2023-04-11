@@ -120,7 +120,7 @@ public class TicTacToe {
 
         if (table[3][0] == symbol && table[2][1] == symbol && table[1][2] == symbol && table[0][3] == symbol)
             return true;
-        if (table[4][2] == symbol && table[3][2] == symbol && table[2][3] == symbol && table[1][4] == symbol)
+        if (table[4][1] == symbol && table[3][2] == symbol && table[2][3] == symbol && table[1][4] == symbol)
             return true;
 
         if (table[4][0] == symbol && table[3][1] == symbol && table[2][2] == symbol && table[1][3] == symbol)
@@ -132,7 +132,7 @@ public class TicTacToe {
 
     public boolean isTableFull() {
         for (int x = 0; x < table.length; x++) {
-            for (int y = 0; y < table[x].length; x++) {
+            for (int y = 0; y < table[x].length; y++) {
                 if (table[x][y] == '.') return false;
             }
         }
@@ -176,9 +176,9 @@ public class TicTacToe {
     }
 
     public void initTable() {
-        for (int y = 0; y < table.length; y++) {
-            for (int x = 0; x < table[y].length; x++) {
-                table[y][x] = '.';
+        for (int x = 0; x < table.length; x++) {
+            for (int y = 0; y < table[x].length; y++) {
+                table[x][y] = '.';
             }
         }
     }
