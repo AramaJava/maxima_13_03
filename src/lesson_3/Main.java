@@ -16,7 +16,7 @@ public class Main {
  */
         // орф. ошибка - выводилА
         // закоментил чтобы выполнялся код ниже
-        /*
+
         Scanner scan = new Scanner(System.in);
         int fromconsole = scan.nextInt();
         if (fromconsole < 5) {
@@ -26,7 +26,7 @@ public class Main {
         } else {
             System.out.println("Число равно5 5");
         }
-*/
+
 
 /*
         2 Напиши программу. которая будет проверять попало ли целое число, которое мы ей подадим
@@ -40,18 +40,16 @@ public class Main {
         Пример для числа 60:
         Число 60 содержится в интервале.
 */
-        // коммент чтобы дальше
-        /*
-        Scanner scan = new Scanner(System.in);
-        int fromconsole = scan.nextInt();
-        if (fromconsole > 50 && fromconsole < 100) {
-            System.out.println("Число " + fromconsole + " содержится в интервале");
+
+        Scanner scan1 = new Scanner(System.in);
+        int fromconsole1 = scan1.nextInt();
+        if (fromconsole1 > 50 && fromconsole1 < 100) {
+            System.out.println("Число " + fromconsole1 + " содержится в интервале");
         } else {
-            System.out.println("Число " + fromconsole + " не содержится в интервале");
+            System.out.println("Число " + fromconsole1 + " не содержится в интервале");
         }
 
 
-         */
 
 
 
@@ -65,11 +63,11 @@ public class Main {
 
         Пример для номера месяца 5:
         весна
-
+*/
         System.out.println("Введите число месяца");
-        Scanner scan = new Scanner(System.in);
-        int fromconsole = scan.nextInt();
-        switch (fromconsole) {
+        Scanner scan2 = new Scanner(System.in);
+        int fromconsole2 = scan2.nextInt();
+        switch (fromconsole2) {
             case 12, 1, 2:
                 System.out.println("Зима");
                 break;
@@ -95,25 +93,22 @@ public class Main {
                 Если число отрицательное, то прибавить единицу.
         Если введенное число равно нулю, необходимо вывести ноль.
         Вывести результат в консоль.
+*/
 
 
- */
-        /*
         System.out.println("Введите положительное или отрицательное число:");
-        Scanner scan = new Scanner(System.in);
+        Scanner scan3 = new Scanner(System.in);
         int aaa;
-        int fromconsole = scan.nextInt();
-        if (fromconsole > 0) {
-            aaa = fromconsole * 2;
-        } else if (fromconsole < 0) {
-            aaa = ++fromconsole;
+        int fromconsole3 = scan3.nextInt();
+        if (fromconsole3 > 0) {
+            aaa = fromconsole3 * 2;
+        } else if (fromconsole3 < 0) {
+            aaa = ++fromconsole3;
         } else {
             aaa = 0;
         }
         System.out.println(aaa);
-        /*
 
-         */
         /*
 
         6
@@ -135,11 +130,11 @@ public class Main {
         Годы 2100, 2200 и 2300 - не високосные.
 
 */
-        /*
+
 
         System.out.println("Введите год:");
-        Scanner scan = new Scanner(System.in);
-        int YearFromConsole = scan.nextInt();
+        Scanner scan4 = new Scanner(System.in);
+        int YearFromConsole = scan4.nextInt();
 
         if ((YearFromConsole % 400 == 0) || ((YearFromConsole % 100 != 0) && (YearFromConsole % 4 == 0))) {
             System.out.println("количество дней в этом году: 366");
@@ -147,7 +142,7 @@ public class Main {
             System.out.println("количество дней в этом году: 365");
         }
 
-*/
+
 
 /*
         7
@@ -163,19 +158,19 @@ public class Main {
         Если хотя бы в одном случае сторона окажется больше либо равна сумме двух других,
         то треугольника с такими сторонами не существует.
 */
-        /*
+
         System.out.println("Введите сторону а треугольника:");
-        Scanner scan = new Scanner(System.in);
-        int a = scan.nextInt();
+        Scanner scan5 = new Scanner(System.in);
+        int a = scan5.nextInt();
         System.out.println("Введите сторону b треугольника:");
-        int b = scan.nextInt();
+        int b = scan5.nextInt();
         System.out.println("Введите сторону c треугольника:");
-        int c = scan.nextInt();
+        int c = scan5.nextInt();
 
         if ((a+b>c)&&(b+c>a)&&(c+a>b)) {
             System.out.println("Треугольник существует.");
         } else {System.out.println("Треугольник не существует.");}
-*/
+
 
  /*       8
         Работа светофора для пешеходов запрограммирована следующим образом:
@@ -203,17 +198,17 @@ public class Main {
         зелёный*/
 
         System.out.println("Введите время в минутах, от 0 до 60: (дробная часть через запятую)");
-        Scanner scan = new Scanner(System.in);
-        float time = scan.nextFloat();
+        Scanner scan6 = new Scanner(System.in);
+        float time = scan6.nextFloat();
         int timeGreen=3;
         int timeYellow=1;
         int timeRed=1;
 
-        int a = (int) time % (timeGreen+timeYellow+timeRed) ;
+        int ab = (int) time % (timeGreen+timeYellow+timeRed) ;
 
-        if ((a >= 0) && (a < 3)) {
+        if ((ab >= 0) && (a < 3)) {
             System.out.println("зелёный");
-        } else if (a == 3) {
+        } else if (ab == 3) {
             System.out.println("жёлтый");
         } else
             System.out.println("красный");

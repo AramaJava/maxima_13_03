@@ -152,7 +152,7 @@ public class Main {
         Вывести на экран максимальное и минимальное числа через пробел.
         */
         // РЕШЕНИЕ ЗАДАЧИ 6
-/*
+
        int[] nums1 = new int[20];
 
         Scanner scan6 = new Scanner(System.in);
@@ -182,7 +182,7 @@ public class Main {
        // РЕШЕНИЕ ЗАДАЧИ 7
 
          //   int[] nums = new int[]{64, 42, 73, 41, 31, 53, 16, 24, 57, 42, 74, 55, 36};
-  /*      int[] nums = new int[20];
+        int[] nums = new int[20];
 
         Scanner scan7 = new Scanner(System.in);
         for (int i = 0; i < nums.length ; i++) {
@@ -207,6 +207,6 @@ public class Main {
             System.out.println(num);
 
         }
-*/
+
     }
 }
