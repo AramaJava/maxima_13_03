@@ -1,5 +1,7 @@
 package lesson_8;
 
+import static lesson_8.HomeWork.calc;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -16,6 +18,6 @@ public class Main {
         int a = HomeWork.getInt();
         int b = HomeWork.getInt();
         char c = HomeWork.getOperation();
-        HomeWork.calc(a, b, c);
+        calc(a, b, c);
     }
 }

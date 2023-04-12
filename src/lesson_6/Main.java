@@ -61,7 +61,6 @@ public class Main {
 
         for (int i = 0; i < 5; i++) {
             System.out.printf("Введите строку %d:", i + 1);
-
             str2[i] = scan2.nextLine();
         }
 
@@ -77,9 +76,9 @@ public class Main {
             }
 
         }
-        System.out.printf("Самое длинное слово %s, c длиной %d", maxStr, maxStr.length());
+        System.out.printf("Самая длинная строка %s, c длиной %d", maxStr, maxStr.length());
         System.out.println();
-        System.out.printf("Самое короткое слово %s, c длиной %d", minStr, minStr.length());
+        System.out.printf("Самая короткая строка %s, c длиной %d", minStr, minStr.length());
 
         /* ЗАДАЧА 3
           3.1. Создать массив на 10 строк.

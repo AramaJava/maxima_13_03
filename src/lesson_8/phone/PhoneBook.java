@@ -23,7 +23,7 @@ public class PhoneBook {
 
     public Contact searchContact(String nameOfContact) {
         for (Contact contact : contacts) {
-            if (Objects.equals(contact.getName(), nameOfContact)) {
+            if (contact.getName().equalsIgnoreCase(nameOfContact)) {
                 return contact;
             }
         }

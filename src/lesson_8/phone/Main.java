@@ -21,7 +21,7 @@ public class Main {
 
         Contact searchResult = phoneBook.searchContact("vova");
         if (searchResult != null) {
-            System.out.printf(searchResult.getName());
+            System.out.printf(searchResult.getEmail());
         }
 
 
