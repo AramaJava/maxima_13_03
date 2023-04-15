@@ -22,13 +22,14 @@ public class PhoneBook {
     }
 
     public Contact searchContact(String nameOfContact) {
-        for (Contact contact : contacts) {
-            if (contact.getName().equalsIgnoreCase(nameOfContact)) {
-                return contact;
-            }
+        int i = 0;
+        while (contacts[i] != null) {
+            if (contacts[i].getName().equalsIgnoreCase(nameOfContact)) return contacts[i];
+            i++;
         }
         return null;
     }
+
 
     public void deleteContact(String nameOfContact) {
         for (int i = 0; i < contacts.length; i++) {
