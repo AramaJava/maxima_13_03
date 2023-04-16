@@ -8,6 +8,11 @@ public class Dog extends Animal {
         return isClimbingTrees;
     }
 
+    @Override
+    public String toString() {
+        return "Собака";
+    }
+
     public void setClimbingTrees(boolean climbingTrees) {
         isClimbingTrees = climbingTrees;
     }

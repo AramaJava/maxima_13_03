@@ -47,18 +47,8 @@ public class Animal {
     }
 
     public String typeOfAnimal(Animal animal) {
-
-        switch (animal.getClass().getSimpleName()) {
-            case "Dog" -> {
-                return "Собака";
-            }
-            case "Cat" -> {
-                return "Кошка";
-            }
-            case "Horse" -> {
-                return "Лошадь";
-            }
-        }
-        return null;
+        if (animal instanceof Dog) return "Собака";
+        if (animal instanceof Cat) return "Кошка";
+        else return "Лошадь";
     }
 }
