@@ -22,7 +22,7 @@ public class TicTacToe {
         printTable();
         while (true) {
             turnHuman();
-            if (checkWin('x')) {
+            if (checkWin('x', 4)) {
                 printTable();
                 System.out.println("Вы победили!");
                 break;
@@ -38,7 +38,7 @@ public class TicTacToe {
             turnAI();
             printTable();
 
-            if (checkWin('o')) {
+            if (checkWin('o',4)) {
                 printTable();
                 System.out.println("Компьютер выиграл!");
                 break;
@@ -60,8 +60,20 @@ public class TicTacToe {
         }
     }
 
-    public boolean checkWin(char symbol) {
+    public boolean checkWin(char symbol, int winCount ) {
+        // проверка по гориз
+        for (int x = 0; x < (table.length-winCount + 1); x++) {
+            for (int y = 0; y < winCount; y++) {
+                if (table[x][y] == '.') return false;
+            }
+        }
+
+        return false;
+
+
+                /*
 //-- проверка по гориз
+
         if (table[0][0] == symbol && table[0][1] == symbol && table[0][2] == symbol && table[0][3] == symbol)
             return true;
         if (table[0][1] == symbol && table[0][2] == symbol && table[0][3] == symbol && table[0][4] == symbol)
@@ -129,7 +141,8 @@ public class TicTacToe {
             return true;
         return false;
     }
-
+*/
+    }
     public boolean isTableFull() {
         for (int x = 0; x < table.length; x++) {
             for (int y = 0; y < table[x].length; y++) {
