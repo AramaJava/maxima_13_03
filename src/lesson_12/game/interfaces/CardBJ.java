@@ -5,4 +5,5 @@ public interface CardBJ {
     void printCard();
     // получить значение карты
     int getValue();
+    String getNameCard();
 }

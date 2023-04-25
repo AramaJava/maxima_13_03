@@ -12,5 +12,6 @@ public interface Player {
 
     // показывать все карты на руках
     void showCardsOnHand();
-
+    boolean isInGame();
+    void setInGame(boolean inGame);
 }

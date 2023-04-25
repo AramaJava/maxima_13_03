@@ -21,4 +21,9 @@ public class CardBJImpl implements CardBJ {
     public int getValue() {
         return value;
     }
+
+    @Override
+    public String getNameCard() {
+        return null;
+    }
 }

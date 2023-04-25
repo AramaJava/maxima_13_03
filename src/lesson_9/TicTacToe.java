@@ -1,29 +1,43 @@
 package lesson_9;
-
-
 import java.util.Random;
 import java.util.Scanner;
-
 public class TicTacToe {
+
+    static char[][] board;
+    static int boardSize = 5;
+    static int winCount = 4;
     Scanner scan;
-    char[][] table;
     Random random;
+
 
     public TicTacToe() {
         scan = new Scanner(System.in);
         random = new Random();
-        table = new char[5][5];
-
+        board = new char[boardSize][boardSize];
     }
+
+
+
+    public static void initializeBoard() {
+        // цикл по строкам
+        for (int i = 0; i < boardSize; i++) {
+            // цикл по столбцам
+            for (int j = 0; j < boardSize; j++) {
+                board[i][j] = '.';
+            }
+        }
+    }
+
+
 
     public void playGame() {
         System.out.println("Игра стартовала!");
-        initTable();
-        printTable();
+        initializeBoard();
+        printBoard();
         while (true) {
             turnHuman();
-            if (checkWin('x', 4)) {
-                printTable();
+            if (checkWin('x', winCount)) {
+                printBoard();
                 System.out.println("Вы победили!");
                 break;
             }
@@ -36,10 +50,10 @@ public class TicTacToe {
             }
 
             turnAI();
-            printTable();
+            printBoard();
 
             if (checkWin('o',4)) {
-                printTable();
+                printBoard();
                 System.out.println("Компьютер выиграл!");
                 break;
             }
@@ -54,23 +68,24 @@ public class TicTacToe {
             x = random.nextInt(0, 4);
             y = random.nextInt(0, 4);
             if (isTurnValid(x, y)) {
-                table[x][y] = 'o';
+                board[x][y] = 'o';
                 break;
             }
         }
     }
 
-    public boolean checkWin(char symbol, int winCount ) {
-        // проверка по гориз
-        for (int x = 0; x < (table.length-winCount + 1); x++) {
-            for (int y = 0; y < winCount; y++) {
-                if (table[x][y] == '.') return false;
-            }
-        }
 
+    public boolean checkRowsForWin(char symbol, int winCount) {
         return false;
-
-
+    }
+    public boolean checkColumnsForWin(char symbol, int winCount) {
+        return false;
+    }
+    public boolean checkDiagonalsForWin(char symbol, int winCount) {
+        return false;
+    }
+    public boolean checkWin(char symbol, int winCount ) {
+      return checkRowsForWin(symbol, winCount) || checkColumnsForWin(symbol, winCount) || checkDiagonalsForWin(symbol, winCount);
                 /*
 //-- проверка по гориз
 
@@ -144,9 +159,9 @@ public class TicTacToe {
 */
     }
     public boolean isTableFull() {
-        for (int x = 0; x < table.length; x++) {
-            for (int y = 0; y < table[x].length; y++) {
-                if (table[x][y] == '.') return false;
+        for (int x = 0; x < boardSize; x++) {
+            for (int y = 0; y < board[x].length; y++) {
+                if (board[x][y] == '.') return false;
             }
         }
         return true;
@@ -156,11 +171,11 @@ public class TicTacToe {
         int x, y;
 
         while (true) {
-            System.out.println("Введите х и y [0..4]");
+            System.out.println("Введите х и y :");
             x = scan.nextInt();
             y = scan.nextInt();
             if (isTurnValid(x, y)) {
-                table[x][y] = 'x';
+                board[x][y] = 'x';
                 break;
             }
 
@@ -169,32 +184,26 @@ public class TicTacToe {
 
 
     public boolean isTurnValid(int x, int y) {
-        if (x < 0 || x > 4 || y < 0 || y > 4) {
+        if (x < 0 || x > boardSize-1 || y < 0 || y > boardSize-1) {
             return false;
         }
-        return table[x][y] == '.';
+        return board[x][y] == '.';
     }
 
-    private void printTable() {
-        System.out.println("    0  1  2  3  4  Y");
-        System.out.println("   ______________");
-        for (int y = 0; y < table.length; y++) {
-            System.out.printf("%d | ", y);
-            for (int x = 0; x < table[y].length; x++) {
-                System.out.print(table[y][x] + "  ");
+
+    public void printBoard() {
+        System.out.println(" --------------------");
+
+        for (int i = 0; i < boardSize; i++) {
+            System.out.print("| ");
+            for (int j = 0; j < boardSize; j++) {
+                System.out.print(board[i][j] + " | ");
             }
             System.out.println();
+            System.out.println(" --------------------");
         }
-        System.out.println("X");
     }
 
-    public void initTable() {
-        for (int x = 0; x < table.length; x++) {
-            for (int y = 0; y < table[x].length; y++) {
-                table[x][y] = '.';
-            }
-        }
-    }
 }
 
 
