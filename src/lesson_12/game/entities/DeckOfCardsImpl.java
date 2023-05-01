@@ -6,80 +6,84 @@ import lesson_12.game.interfaces.DeckOfCards;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class DeckOfCardsImpl implements DeckOfCards {
-    CardBJ[] cards = new CardBJ[52];
+    CardBJ[] cardsOnDeck = new CardBJ[52];
+    CardBJ[] cardsOnHands = new CardBJ[52];
+
 
     public DeckOfCardsImpl() {
+        cardsOnDeck[0] = new CardBJImpl("Двойка Треф", 2);
+        cardsOnDeck[1] = new CardBJImpl("Двойка Черви", 2);
+        cardsOnDeck[2] = new CardBJImpl("Двойка Буби", 2);
+        cardsOnDeck[3] = new CardBJImpl("Двойка Пики", 2);
 
-        cards[0] = new CardBJImpl("Двойка треф", 2);
-        cards[1] = new CardBJImpl("Двойка черви", 2);
-        cards[2] = new CardBJImpl("Двойка крести", 2);
-        cards[3] = new CardBJImpl("Двойка буби", 2);
+        cardsOnDeck[4] = new CardBJImpl("Тройка Треф", 3);
+        cardsOnDeck[5] = new CardBJImpl("Тройка Черви", 3);
+        cardsOnDeck[6] = new CardBJImpl("Тройка Буби", 3);
+        cardsOnDeck[7] = new CardBJImpl("Тройка Пики", 3);
 
-        cards[4] = new CardBJImpl("Тройка треф", 3);
-        cards[5] = new CardBJImpl("Тройка черви", 3);
-        cards[6] = new CardBJImpl("Тройка крести", 3);
-        cards[7] = new CardBJImpl("Тройка буби", 3);
+        cardsOnDeck[8] = new CardBJImpl("Четверка Треф", 4);
+        cardsOnDeck[9] = new CardBJImpl("Четверка Черви", 4);
+        cardsOnDeck[10] = new CardBJImpl("Четверка Буби", 4);
+        cardsOnDeck[11] = new CardBJImpl("Четверка Пики", 4);
 
-        cards[8] = new CardBJImpl("Четверка треф", 4);
-        cards[9] = new CardBJImpl("Четверка черви", 4);
-        cards[10] = new CardBJImpl("Четверка крести", 4);
-        cards[11] = new CardBJImpl("Четверка буби", 4);
+        cardsOnDeck[12] = new CardBJImpl("Пятерка Треф", 5);
+        cardsOnDeck[13] = new CardBJImpl("Пятерка Черви", 5);
+        cardsOnDeck[14] = new CardBJImpl("Пятерка Буби", 5);
+        cardsOnDeck[15] = new CardBJImpl("Пятерка Пики", 5);
 
-        cards[12] = new CardBJImpl("Пятерка треф", 5);
-        cards[13] = new CardBJImpl("Пятерка черви", 5);
-        cards[14] = new CardBJImpl("Пятерка крести", 5);
-        cards[15] = new CardBJImpl("Пятерка буби", 5);
+        cardsOnDeck[16] = new CardBJImpl("Шестерка Треф", 6);
+        cardsOnDeck[17] = new CardBJImpl("Шестерка Черви", 6);
+        cardsOnDeck[18] = new CardBJImpl("Шестерка Буби", 6);
+        cardsOnDeck[19] = new CardBJImpl("Шестерка Пики", 6);
 
-        cards[16] = new CardBJImpl("Шестерка треф", 6);
-        cards[17] = new CardBJImpl("Шестерка черви", 6);
-        cards[18] = new CardBJImpl("Шестерка крести", 6);
-        cards[19] = new CardBJImpl("Шестерка буби", 6);
+        cardsOnDeck[20] = new CardBJImpl("Семерка Треф", 7);
+        cardsOnDeck[21] = new CardBJImpl("Семерка Черви", 7);
+        cardsOnDeck[22] = new CardBJImpl("Семерка Буби", 7);
+        cardsOnDeck[23] = new CardBJImpl("Семерка Пики", 7);
 
-        cards[20] = new CardBJImpl("Семерка треф", 7);
-        cards[21] = new CardBJImpl("Семерка черви", 7);
-        cards[22] = new CardBJImpl("Семерка крести", 7);
-        cards[23] = new CardBJImpl("Семерка буби", 7);
+        cardsOnDeck[24] = new CardBJImpl("Восьмерка Треф", 8);
+        cardsOnDeck[25] = new CardBJImpl("Восьмерка Черви", 8);
+        cardsOnDeck[26] = new CardBJImpl("Восьмерка Буби", 8);
+        cardsOnDeck[27] = new CardBJImpl("Восьмерка Пики", 8);
 
-        cards[24] = new CardBJImpl("Восьмерка треф", 8);
-        cards[25] = new CardBJImpl("Восьмерка черви", 8);
-        cards[26] = new CardBJImpl("Восьмерка крести", 8);
-        cards[27] = new CardBJImpl("Восьмерка буби", 8);
+        cardsOnDeck[28] = new CardBJImpl("Девятка Треф", 9);
+        cardsOnDeck[29] = new CardBJImpl("Девятка Черви", 9);
+        cardsOnDeck[30] = new CardBJImpl("Девятка Буби", 9);
+        cardsOnDeck[31] = new CardBJImpl("Девятка Пики", 9);
 
-        cards[28] = new CardBJImpl("Девятка треф", 9);
-        cards[29] = new CardBJImpl("Девятка черви", 9);
-        cards[30] = new CardBJImpl("Девятка крести", 9);
-        cards[31] = new CardBJImpl("Девятка буби", 9);
+        cardsOnDeck[32] = new CardBJImpl("Десятка Треф", 10);
+        cardsOnDeck[33] = new CardBJImpl("Десятка Черви", 10);
+        cardsOnDeck[34] = new CardBJImpl("Десятка Буби", 10);
+        cardsOnDeck[35] = new CardBJImpl("Десятка Пики", 10);
 
-        cards[32] = new CardBJImpl("Десятка треф", 10);
-        cards[33] = new CardBJImpl("Десятка черви", 10);
-        cards[34] = new CardBJImpl("Десятка крести", 10);
-        cards[35] = new CardBJImpl("Десятка буби", 10);
+        cardsOnDeck[36] = new CardBJImpl("Валет Треф", 10);
+        cardsOnDeck[37] = new CardBJImpl("Валет Черви", 10);
+        cardsOnDeck[38] = new CardBJImpl("Валет Буби", 10);
+        cardsOnDeck[39] = new CardBJImpl("Валет Пики", 10);
 
-        cards[36] = new CardBJImpl("Валет треф", 11);
-        cards[37] = new CardBJImpl("Валет черви", 2);
-        cards[38] = new CardBJImpl("Валет крести", 2);
-        cards[39] = new CardBJImpl("Валет буби", 2);
+        cardsOnDeck[40] = new CardBJImpl("Дама Треф", 10);
+        cardsOnDeck[41] = new CardBJImpl("Дама Черви", 10);
+        cardsOnDeck[42] = new CardBJImpl("Дама Буби", 10);
+        cardsOnDeck[43] = new CardBJImpl("Дама Пики", 10);
 
-        cards[40] = new CardBJImpl("Дама треф", 2);
-        cards[41] = new CardBJImpl("Дама черви", 2);
-        cards[42] = new CardBJImpl("Дама крести", 2);
-        cards[43] = new CardBJImpl("Дама буби", 2);
+        cardsOnDeck[44] = new CardBJImpl("Кароль Треф", 10);
+        cardsOnDeck[45] = new CardBJImpl("Кароль Черви", 10);
+        cardsOnDeck[46] = new CardBJImpl("Кароль Буби", 10);
+        cardsOnDeck[47] = new CardBJImpl("Кароль Пики", 10);
 
-        cards[44] = new CardBJImpl("Кароль треф", 2);
-        cards[45] = new CardBJImpl("Кароль черви", 2);
-        cards[46] = new CardBJImpl("Кароль крести", 2);
-        cards[47] = new CardBJImpl("Кароль буби", 2);
-
-        cards[48] = new CardBJImpl("Туз треф", 2);
-        cards[49] = new CardBJImpl("Туз черви", 2);
-        cards[50] = new CardBJImpl("Туз крести", 2);
-        cards[51] = new CardBJImpl("Туз буби", 2);
-
+        cardsOnDeck[48] = new CardBJImpl("Туз Треф", 11);
+        cardsOnDeck[49] = new CardBJImpl("Туз Черви", 11);
+        cardsOnDeck[50] = new CardBJImpl("Туз Буби", 11);
+        cardsOnDeck[51] = new CardBJImpl("Туз Пики", 11);
     }
 
     @Override
     public CardBJ getRandomCard() {
-        int randomIndex = ThreadLocalRandom.current().nextInt(0,51);
-        return cards[randomIndex];
+        // количество колод в игре нужно указать заранее, их может быть от 1 до 8 нужно выдавать уникальные карты, без повторов
+
+        int randomIndex = ThreadLocalRandom.current().nextInt(0, cardsOnDeck.length - 1);
+        return cardsOnDeck[randomIndex];
     }
+
+
 }

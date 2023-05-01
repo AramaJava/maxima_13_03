@@ -55,16 +55,18 @@ public class BlackJackGameImpl implements BlackjackGame {
 
             if (countAllPlayersInGame() == 1) {
                 System.out.println("У нас есть один победитель!");
-                for (Player player : playersInGame) {
+                for (Player player1 : playersInGame) {
                     if (player != null && player.isInGame()) {
                         player.showCardsOnHand();
                         System.out.println("Выиграл игрок с " + player.countValuesAllCardsOnHand()
-                        + "очков на руках!");
+                                + "очков на руках!");
                     }
 
-            }
+                }
 
+            }
         }
+
     }
 
     @Override
@@ -74,12 +76,6 @@ public class BlackJackGameImpl implements BlackjackGame {
 
     @Override
     public int countAllPlayersInGame() {
-        int countOfPlayers = 0;
-        for (Player player : playersInGame) {
-            if (player != null && player.isInGame()) {
-                countOfPlayers++;
-            }
-        }
-        return countOfPlayers;
+        return 0;
     }
 }

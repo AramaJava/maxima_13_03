@@ -11,6 +11,10 @@ import lesson_12.game.interfaces.Player;
 public class Main {
     public static void main(String[] args) {
         // создать игру
+        DeckOfCards deckOfCards = new DeckOfCardsImpl();
+        deckOfCards.getRandomCard().printCard();
+        deckOfCards.getRandomCard().printCard();
+
         BlackjackGame game = new BlackJackGameImpl();
         // создать игроков
         Player player1 = new PlayerImpl();

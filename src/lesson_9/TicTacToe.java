@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class TicTacToe {
 
     static char[][] board;
-    static int boardSize = 5;
-    static int winCount = 4;
+    public static int boardSize = 5;
+    public static int winCount = 4;
     Scanner scan;
     Random random;
 
@@ -52,7 +52,7 @@ public class TicTacToe {
             turnAI();
             printBoard();
 
-            if (checkWin('o',4)) {
+            if (checkWin('o',winCount)) {
                 printBoard();
                 System.out.println("Компьютер выиграл!");
                 break;
