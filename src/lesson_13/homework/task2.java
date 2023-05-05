@@ -1,6 +1,7 @@
 package lesson_13.homework;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class task2 {
@@ -11,8 +12,8 @@ public class task2 {
         3. Используя цикл, найди самую длинную строку в списке.
         4. Выведи найденную строку на экран. Если таких строк несколько, выведи каждую с новой строки.*/
 
-        ArrayList<String> array1 = new ArrayList<>();
-        String [] list = new String[5];
+        ArrayList<String> array1 = new ArrayList<String>();
+        List<String> list = new ArrayList<String>();
 
         Scanner scan = new Scanner(System.in);
 
@@ -22,17 +23,14 @@ public class task2 {
         }
 
         int maxlen =  0;
-        int index = 0;
 
         for (int i = 0; i < array1.size(); i++) {
 
             if(array1.get(i).length()>maxlen){
                 maxlen = array1.get(i).length();
-                index = 0;
-                list[index] = array1.get(i);
+                list.add(array1.get(i));
             } else if(array1.get(i).length()==maxlen){
-                index++;
-                list[index] = array1.get(i);
+                list.add(array1.get(i));
             }
         }
 

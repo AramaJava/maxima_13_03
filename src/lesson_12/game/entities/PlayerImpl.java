@@ -6,6 +6,12 @@ import lesson_12.game.interfaces.Player;
 import java.util.Scanner;
 
 public class PlayerImpl implements Player {
+    private String name;
+
+    public PlayerImpl(String name, boolean inGame) {
+        this.name = name;
+        this.inGame = inGame;
+    }
 
     CardBJ [] cardsOnHand = new CardBJ[10];
     private boolean inGame;

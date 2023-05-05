@@ -1,6 +1,7 @@
 package lesson_13.homework;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class task5 {
@@ -11,7 +12,7 @@ public class task5 {
         3. Выполни 13 раз: удалить последнюю строку и вставить её в начало.
         4. Используя цикл выведи содержимое результирующего списка на экран, каждое значение с новой строки.*/
 
-        ArrayList<String> arrayList2 = new ArrayList<>();
+        List<String> arrayList2 = new ArrayList<>();
 
         Scanner scan = new Scanner(System.in);
 

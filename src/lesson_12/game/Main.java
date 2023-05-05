@@ -10,6 +10,17 @@ import lesson_12.game.interfaces.Player;
 
 public class Main {
     public static void main(String[] args) {
+
+
+     /* ДЗ
+        1 - Добавить имена игрокам
+        2 - регулировать кол-во игроков
+        3 - отрегулировать процесс выявления победителя, разбирали на уроке, что последний шаг проверки барахлит
+        4 * - добавить символ каждой карты и выводить саму карту с её символом + текстовое описание
+*/
+
+
+
         // создать игру
         DeckOfCards deckOfCards = new DeckOfCardsImpl();
         deckOfCards.getRandomCard().printCard();
@@ -17,11 +28,11 @@ public class Main {
 
         BlackjackGame game = new BlackJackGameImpl();
         // создать игроков
-        Player player1 = new PlayerImpl();
-        Player player2 = new PlayerImpl();
+        Player player1 = new PlayerImpl("Володя", true);
+        Player player2 = new PlayerImpl("Юра", true);
 
         // 3 - Создать крупье
-        Croupier croupier = new Croupier();
+        Croupier croupier = new Croupier("Крупье", true);
 
         // 4 - Добавить игроков и крупье в игру
         game.addPlayerInGame(player1);

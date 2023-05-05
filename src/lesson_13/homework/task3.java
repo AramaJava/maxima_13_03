@@ -1,6 +1,7 @@
 package lesson_13.homework;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class task3 {
@@ -12,8 +13,8 @@ public class task3 {
         4. Выведи найденную строку на экран.
         5. Если таких строк несколько, выведи каждую с новой строки.*/
 
-        ArrayList<String> array1 = new ArrayList<>();
-        ArrayList<String> list = new ArrayList<>();
+        List<String> array1 = new ArrayList<>();
+        List<String> list = new ArrayList<>();
 
         Scanner scan = new Scanner(System.in);
 

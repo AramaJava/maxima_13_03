@@ -1,16 +1,20 @@
 package lesson_12.game.interfaces;
 
 public interface BlackjackGame {
-    // добавить игроков в и гру
 
+    // добавить игроков в и гру
     void addPlayerInGame(Player player);
 
     // выдать нам по 2 карты
     void giveTwoCardsToEachPlayerOnStart();
-    // выдать доп карту, если нужна
+
+    // выдать по доп карте, если нужна
     void giveCardIfNeedToPlayer();
+
     // определить и распечатать победителя
     void printWinner();
+
+    //
     int setCountOfPlayer();
 
     // посчитать кол-во игроков в игре

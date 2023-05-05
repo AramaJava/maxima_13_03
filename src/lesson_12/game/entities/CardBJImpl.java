@@ -23,6 +23,6 @@ public class CardBJImpl implements CardBJ {
 
     @Override
     public String getNameCard() {
-        return null;
+        return nameOfCard;
     }
 }

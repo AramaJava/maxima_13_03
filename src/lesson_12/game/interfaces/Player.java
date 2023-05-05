@@ -1,10 +1,11 @@
 package lesson_12.game.interfaces;
 
 public interface Player {
+
     // взять карту из колоды
     void takeCard(CardBJ card);
 
-    // посчитать сумму карт на руке
+    // посчитать сумму карт на руке игрока
     int countValuesAllCardsOnHand();
 
     // ответит нужна ли дополнительная карта
@@ -14,5 +15,6 @@ public interface Player {
     void showCardsOnHand();
 
     boolean isInGame();
+
     void setInGame(boolean inGame);
 }

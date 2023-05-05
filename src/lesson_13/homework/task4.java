@@ -22,8 +22,6 @@ public class task4 {
         for (int i = 1; i <= 10; i++) {
             System.out.printf("Введите %s строку: ", i);
             arrayList1.add(0,scan.nextLine());
-            //arrayList1.add(i-1,scan.nextLine());
-
         }
 
         for(String s : arrayList1){

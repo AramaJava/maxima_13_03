@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class task7 {
-    private static void  printList (ArrayList<Integer> list) {
+    private static void printList(ArrayList<Integer> list) {
         System.out.println("-----------------");
         for (Integer num : list) {
             System.out.println(num);
         }
+        System.out.println("-----------------");
     }
 
     public static void main(String[] args) {
@@ -38,35 +39,40 @@ public class task7 {
 
         for (int i = 1; i <= 20; i++) {
             System.out.printf("Введите %s число: ", i);
-           // arrayListSource.add(scan.nextInt());
+            // arrayListSource.add(scan.nextInt());
             arrayListSource.add(i);
         }
 
+        System.out.println();
 
+        boolean dev2;
+        boolean dev3;
 
-
-        for (int num:arrayListSource) {
-
-            if ((num % 3 == 0) && (num % 2 == 0)) {
+        for (int num : arrayListSource) {
+            dev2 = false;
+            dev3 = false;
+            if (num % 3 == 0) {
                 arrayListDevBy3.add(num);
+                dev3 = true;
+            }
+            if (num % 2 == 0) {
+                dev2 = true;
                 arrayListDevBy2.add(num);
-            } else if (num % 3 == 0) {
-                arrayListDevBy3.add(num);
-            } else if (num % 2 == 0) {
-                arrayListDevBy2.add(num);
-            } else {
+            }
+            if (!dev2 && !dev3) {
                 arrayListAll.add(num);
             }
 
         }
 
-          printList(arrayListDevBy3);
-          printList(arrayListDevBy2);
-          printList(arrayListAll);
+        System.out.println("Список чисел делящихся нацело на 3");
+        printList(arrayListDevBy3);
+        System.out.println("Список чисел делящихся нацело на 2");
+        printList(arrayListDevBy2);
+        System.out.println("Список всех остальных чисел");
+        printList(arrayListAll);
 
     }
-
-
 
 
 }
