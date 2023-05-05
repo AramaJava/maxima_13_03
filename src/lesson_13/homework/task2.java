@@ -12,8 +12,8 @@ public class task2 {
         3. Используя цикл, найди самую длинную строку в списке.
         4. Выведи найденную строку на экран. Если таких строк несколько, выведи каждую с новой строки.*/
 
-        ArrayList<String> array1 = new ArrayList<String>();
-        List<String> list = new ArrayList<String>();
+        List<String> array1 = new ArrayList<>();
+        List<String> list = new ArrayList<>();
 
         Scanner scan = new Scanner(System.in);
 

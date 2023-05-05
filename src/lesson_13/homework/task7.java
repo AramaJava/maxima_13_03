@@ -1,10 +1,11 @@
 package lesson_13.homework;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class task7 {
-    private static void printList(ArrayList<Integer> list) {
+    private static void printList(List<Integer> list) {
         System.out.println("-----------------");
         for (Integer num : list) {
             System.out.println(num);
@@ -30,10 +31,10 @@ public class task7 {
            Сначала тот, который для x%3, потом тот, который для x%2, потом последний.
                 */
 
-        ArrayList<Integer> arrayListSource = new ArrayList<>();
-        ArrayList<Integer> arrayListDevBy2 = new ArrayList<>();
-        ArrayList<Integer> arrayListDevBy3 = new ArrayList<>();
-        ArrayList<Integer> arrayListAll = new ArrayList<>();
+        List<Integer> arrayListSource = new ArrayList<>();
+        List<Integer> arrayListDevBy2 = new ArrayList<>();
+        List<Integer> arrayListDevBy3 = new ArrayList<>();
+        List<Integer> arrayListAll = new ArrayList<>();
 
         Scanner scan = new Scanner(System.in);
 
