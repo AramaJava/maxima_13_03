@@ -22,8 +22,8 @@ public class BlackJackGameImpl implements BlackjackGame {
     public void giveTwoCardsToEachPlayerOnStart() {
         for (Player player : playersInGame) {
             if (player != null) {
-                player.takeCard(deckOfCards.getRandomCard());
-                player.takeCard(deckOfCards.getRandomCard());
+         //       player.takeCard(deckOfCards.getCardFromDeck());
+         //       player.takeCard(deckOfCards.getCardFromDeck());
             }
         }
     }
@@ -33,7 +33,7 @@ public class BlackJackGameImpl implements BlackjackGame {
         for (Player player : playersInGame) {
             if (player != null) {
                 while (player.needCard()) {
-                    player.takeCard(deckOfCards.getRandomCard());
+          //          player.takeCard(deckOfCards.getCardFromDeck());
                 }
             }
         }

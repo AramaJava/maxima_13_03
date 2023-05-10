@@ -5,11 +5,14 @@
     <scanScope>JavaOnly</scanScope>
     <copyLibs>true</copyLibs>
     <option name="thirdPartyClasspath" />
-    <option name="activeLocationIds" />
+    <option name="activeLocationIds">
+      <option value="a5601c73-7754-4698-9ea4-730034b544e3" />
+    </option>
     <option name="locations">
       <list>
         <ConfigurationLocation id="bundled-sun-checks" type="BUNDLED" scope="All" description="Sun Checks">(bundled)</ConfigurationLocation>
         <ConfigurationLocation id="bundled-google-checks" type="BUNDLED" scope="All" description="Google Checks">(bundled)</ConfigurationLocation>
+        <ConfigurationLocation id="a5601c73-7754-4698-9ea4-730034b544e3" type="LOCAL_FILE" scope="All" description="job4j">$PROJECT_DIR$/../job4j_tracker-master/checkstyle.xml</ConfigurationLocation>
       </list>
     </option>
   </component>

@@ -4,6 +4,8 @@ import lesson_12.game.interfaces.CardBJ;
 import lesson_12.game.interfaces.DeckOfCards;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -64,12 +66,14 @@ public class DeckOfCardsImpl implements DeckOfCards {
         cardsOnDeck.add(49, new CardBJImpl("Т♥ - Туз Черви", 11));
         cardsOnDeck.add(50, new CardBJImpl("Т♦ - Туз Буби", 11));
         cardsOnDeck.add(51, new CardBJImpl("Т♠ - Туз Пики", 11));
+        Collections.shuffle(cardsOnDeck); // перетасовали колоду
     }
 
     @Override
-    public CardBJ getRandomCard() {
-        // количество колод в игре нужно указать заранее, их может быть от 1 до 8 нужно выдавать уникальные карты, без повторов
-        return null;
+    public CardBJ getCardFromDeck(int CardNum) {
+        // в нашем случае количество колод в игре 1
+
+        return cardsOnDeck.get(CardNum);
     }
 
 
