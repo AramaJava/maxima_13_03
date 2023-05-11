@@ -1,4 +1,4 @@
-package lesson_11.abstract_classes;
+package lessons.lesson11.abstractclasses;
 
 public class LadaSedan extends Car {
     @Override
