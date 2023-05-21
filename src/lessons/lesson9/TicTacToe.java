@@ -9,14 +9,11 @@ public class TicTacToe {
     Scanner scan;
     Random random;
 
-
     public TicTacToe() {
         scan = new Scanner(System.in);
         random = new Random();
         board = new char[boardSize][boardSize];
     }
-
-
 
     public static void initializeBoard() {
         // цикл по строкам
@@ -83,7 +80,7 @@ public class TicTacToe {
         return false;
     }
 
-    public boolean checkWin(char symbol, int winCount ) {
+    public boolean checkWin(char symbol, int winCount) {
       return checkRowsForWin(symbol, winCount) || checkColumnsForWin(symbol, winCount) || checkDiagonalsForWin(symbol, winCount);
                 /*
 //-- проверка по гориз

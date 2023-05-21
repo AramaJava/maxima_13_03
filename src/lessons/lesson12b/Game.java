@@ -28,23 +28,25 @@ public class Game {
             try {
                 System.out.println("Введите необходимое количество игроков в игре: ");
                 countOfPlayers = input.nextInt();
-                getNum = false;
+                if (countOfPlayers == 1 || countOfPlayers == 2 || countOfPlayers == 3) {
+                    getNum = false;
+                    for (int i = 0; i < countOfPlayers; i++) {
+                        System.out.print("Введите имя игрока " + (i + 1) + ": ");
+                        String playerName = input.next();
+                        playersArray.add(new Player(playerName));
+                    }
+                } else {
+                    getNum = false;
+                    System.out.println("Некорректный ввод. Добавлен 1 игрок с именем Player");
+                    playersArray.add(new Player("Player"));
+                }
             } catch (Exception e) {
                 System.out.println("Некорректный ввод!");
                 input.next();
             }
         }
-        if (countOfPlayers == 1 || countOfPlayers == 2 || countOfPlayers == 3) {
-            for (int i = 0; i < countOfPlayers; i++) {
-                System.out.print("Введите имя игрока " + (i + 1) + ": ");
-                String playerName = input.next();
-                playersArray.add(new Player(playerName));
-            }
-        } else {
-            System.out.println("Добавлен 1 игрок");
-        }
 
-       // создаем крупье
+        // создаем крупье
         dealer = new Dealer();
         //player = new Player();
 
