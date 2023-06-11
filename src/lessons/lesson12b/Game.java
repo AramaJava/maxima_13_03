@@ -1,7 +1,5 @@
 package lessons.lesson12b;
 
-import lessons.lesson12a.game.entities.PlayerImpl;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,8 +7,7 @@ import java.util.Scanner;
 public class Game {
     private Deck deck, discarded;
     private Dealer dealer;
-    private List<Player> playersArray = new ArrayList<>();
-    private int wins, losses, pushes;
+    private List<Player> players = new ArrayList<>();
 
     public Game() {
         // создаем колоду из 52 карт и перетасовываем её
@@ -26,19 +23,19 @@ public class Game {
         boolean getNum = true;
         while (getNum) {
             try {
-                System.out.println("Введите необходимое количество игроков в игре: ");
+                System.out.println("Введите количество игроков в игре: ");
                 countOfPlayers = input.nextInt();
                 if (countOfPlayers == 1 || countOfPlayers == 2 || countOfPlayers == 3) {
                     getNum = false;
                     for (int i = 0; i < countOfPlayers; i++) {
                         System.out.print("Введите имя игрока " + (i + 1) + ": ");
                         String playerName = input.next();
-                        playersArray.add(new Player(playerName));
+                        players.add(new Player(playerName));
                     }
                 } else {
                     getNum = false;
                     System.out.println("Некорректный ввод. Добавлен 1 игрок с именем Player");
-                    playersArray.add(new Player("Player"));
+                    players.add(new Player("Player"));
                 }
             } catch (Exception e) {
                 System.out.println("Некорректный ввод!");
@@ -48,92 +45,121 @@ public class Game {
 
         // создаем крупье
         dealer = new Dealer();
-        //player = new Player();
 
         // старт раунда
         startRound();
 
-        wins = 0;
-        losses = 0;
-        pushes = 0;
     }
 
     private void startRound() {
 
-        if (wins > 0 || losses > 0 || pushes > 0) {
-            System.out.println("----------------------------------------");
-            System.out.println("Начинается новый раунд игры. Побед: " + wins + " Поражений: " + losses + " Ничьи: " + pushes);
-            System.out.println("Карт в колоде " + deck.cardsLeft());
-            dealer.getHand().discardHandToDeck(discarded);
-            player.getHand().discardHandToDeck(discarded);
+        System.out.println("----------------------------------------");
+        System.out.println("Начинается новый раунд игры!");
+        System.out.println("----------------------------------------");
+        System.out.println("Карт в колоде " + deck.cardsLeft());
+
+        dealer.getHand().discardHandToDeck(discarded);
+
+        for (Player p : players
+        ) {
+            p.getHand().discardHandToDeck(discarded);
         }
 
         if ((deck.cardsLeft()) < 4) {
             deck.reloadDeckFromDiscard(discarded);
         }
 
-        // в этом методе логика каждого раунда
-        // выдаем по 2 карты крупье и игроку
+        // выдаем по 2 карты крупье и каждому игроку
         dealer.getHand().takeCardFromDeck(deck);
         dealer.getHand().takeCardFromDeck(deck);
 
-        player.getHand().takeCardFromDeck(deck);
-        player.getHand().takeCardFromDeck(deck);
+        for (Player p : players
+        ) {
+            p.getHand().takeCardFromDeck(deck);
+            p.getHand().takeCardFromDeck(deck);
+        }
 
-        //печатаем что на руках у игрока и дилера
+        //печатаем что на руках у каждого игрока и дилера
         dealer.printFirstHand();
-        player.printHand();
+
+        //печатаем карты игроков
+        for (Player p : players
+        ) {
+            p.printHand();
+        }
+        System.out.println("_____________________________");
 
         if (dealer.hasBlackjack()) {
-            if (player.hasBlackjack()) {
-                System.out.println("У игрока " + player.getName() + " и у крупье БлекДжек! - Ничья!");
-                pushes++;
-                startRound();
-            } else {
-                System.out.println("У крупье БлекДжек (21 очко)! Вы проиграли.");
-                dealer.printHand();
-                losses++;
+
+            for (Player p : players
+            ) {
+                if (p.hasBlackjack()) {
+                    System.out.println("У игрока " + p.getName() + " и у крупье БлекДжек! -Ничья!");
+                } else {
+                    System.out.println("У крупье БлекДжек (21 очко)! Вы проиграли.");
+                    dealer.printHand();
+                    startRound();
+                }
+            }
+        }
+
+        // Проверка если у игрока сразу БлекДжек
+        for (Player p : players
+        ) {
+            if (p.hasBlackjack()) {
+                System.out.println("Выиграл игрок " + p.getName() + " у него-БлекДжек(21очко)");
                 startRound();
             }
         }
 
-        // Проверка если у игрока БлекДжек
-        if (player.hasBlackjack()) {
-            System.out.println("У игрока " + player.getName() + " - БлекДжек (21 очко). Вы выиграли.");
-            wins++;
-            startRound();
-        }
-
-        player.makeDecision(deck, discarded);
-
-        if (player.getHand().calculatedValue() > 21) {
-            System.out.println("Игрок " + player.getName() + " набрал больше 21. Вы проиграли!");
-            losses++;
-            startRound();
+        for (Player p : players
+        ) {
+            p.makeDecision(deck, discarded);
+            if (p.getHand().calculatedValue() > 21) {
+                System.out.println("Игрок " + p.getName() + " проиграл. Он набрал больше 21.");
+                System.out.println("_____________________________");
+            }
         }
 
         dealer.printHand();
+        // дилер в цикле набирает карты пока у него меньше 17 очков на руках
         while (dealer.getHand().calculatedValue() < 17) {
             dealer.hit(deck, discarded);
         }
 
         // Определяем победителя
 
+        Player bestPlayer = players.get(0);
+        for (Player p : players) {
+            Integer sum = p.getHand().calculatedValue();
+            if (sum <= 21 && sum > bestPlayer.getHand().calculatedValue()) {
+                bestPlayer = p;
+            }
+            if (sum == bestPlayer.getHand().calculatedValue()) {
+                System.out.println("Ничья");
+                startRound();
+            }
+        }
+        if (bestPlayer.getHand().calculatedValue() > 21) {
+            System.out.println("У всех игроков перебор!");
+            startRound();
+        }
+
         if (dealer.getHand().calculatedValue() > 21) {
             System.out.println("Крупье проиграл!");
-            wins++;
-        } else if (dealer.getHand().calculatedValue() > player.getHand().calculatedValue()) {
-            System.out.println("Игрок " + player.getName() + " - вы проиграли!");
-            losses++;
-        } else if (player.getHand().calculatedValue() > dealer.getHand().calculatedValue()) {
-            System.out.println("Игрок " + player.getName() + " - вы выиграли!");
-            wins++;
+            System.out.println("Выиграл игрок " + bestPlayer.getName());
+            bestPlayer.printHand();
+            startRound();
+        } else if (dealer.getHand().calculatedValue() > bestPlayer.getHand().calculatedValue()) {
+            System.out.println("Выйграл крупье!");
+        } else if (bestPlayer.getHand().calculatedValue() > dealer.getHand().calculatedValue()) {
+            System.out.println("Выиграл игрок " + bestPlayer.getName());
+            bestPlayer.printHand();
         } else {
             System.out.println(" Ничья!");
-            pushes++;
         }
+
         startRound();
     }
 }
-
 

@@ -3,10 +3,10 @@ package lessons.lesson12b;
 import java.util.Scanner;
 
 public class Player extends Person {
-    Scanner input = new Scanner(System.in);
+    private Scanner input = new Scanner(System.in);
 
     public Player(String playerName) {
-        super.setName("playerName");
+        super.setName(playerName);
     }
 
     public void makeDecision(Deck deck, Deck discard) {
@@ -15,7 +15,7 @@ public class Player extends Person {
 
         while (getNum) {
             try {
-                System.out.println("Введите 1 чтобы взять еще карту, 2 - пас.");
+                System.out.println("Игрок " + this.getName() + " введите 1 чтобы взять карту, 2 - пас.");
                 decision = input.nextInt();
                 getNum = false;
             } catch (Exception e) {
