@@ -19,7 +19,7 @@ public class Game {
 
         // определяем количество игроков (от 1 до 3) и создаем их
         Scanner input = new Scanner(System.in);
-        int countOfPlayers = 0;
+        int countOfPlayers;
         boolean getNum = true;
         while (getNum) {
             try {
@@ -115,9 +115,11 @@ public class Game {
         for (Player p : players
         ) {
             p.makeDecision(deck, discarded);
-            if (p.getHand().calculatedValue() > 21) {
+            if (p.getHand().calculatedValue() > 21 && players.size() == 1) {
                 System.out.println("Игрок " + p.getName() + " проиграл. Он набрал больше 21.");
+                System.out.println("Выиграл крупье!");
                 System.out.println("_____________________________");
+                startRound();
             }
         }
 
@@ -131,15 +133,16 @@ public class Game {
 
         Player bestPlayer = players.get(0);
         for (Player p : players) {
-            Integer sum = p.getHand().calculatedValue();
+            int sum = p.getHand().calculatedValue();
             if (sum <= 21 && sum > bestPlayer.getHand().calculatedValue()) {
                 bestPlayer = p;
             }
-            if (sum == bestPlayer.getHand().calculatedValue()) {
+            if (sum == bestPlayer.getHand().calculatedValue() && players.size() > 1 && sum >= dealer.getHand().calculatedValue()) {
                 System.out.println("Ничья");
                 startRound();
             }
         }
+
         if (bestPlayer.getHand().calculatedValue() > 21) {
             System.out.println("У всех игроков перебор!");
             startRound();

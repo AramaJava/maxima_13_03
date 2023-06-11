@@ -15,7 +15,7 @@ public class Player extends Person {
 
         while (getNum) {
             try {
-                System.out.println("Игрок " + this.getName() + " введите 1 чтобы взять карту, 2 - пас.");
+                System.out.println("Игрок " + this.getName() + " введите 1 - взять карту, 2 - пас");
                 decision = input.nextInt();
                 getNum = false;
             } catch (Exception e) {
