@@ -137,7 +137,9 @@ public class Game {
             if (sum <= 21 && sum > bestPlayer.getHand().calculatedValue()) {
                 bestPlayer = p;
             }
-            if (sum == bestPlayer.getHand().calculatedValue() && players.size() > 1 && sum >= dealer.getHand().calculatedValue()) {
+            if (sum == bestPlayer.getHand().calculatedValue()
+                    && players.size() > 1
+                    && sum >= dealer.getHand().calculatedValue()) {
                 System.out.println("Ничья");
                 startRound();
             }
