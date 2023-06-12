@@ -1,5 +1,4 @@
 package lessons.lesson14;
-
 import java.util.*;
 
 public class Homework {
@@ -17,7 +16,7 @@ public class Homework {
         Collections.reverse(strings1);
         System.out.println(strings1);
 
-        /*
+/*
     2: 1. Создай список из слов "мама", "мыла", "раму".
        2. После каждого слова вставь в список строку, содержащую слово "именно".
        3. Вывести результат на экран, каждый элемент списка с новой строки.
@@ -34,7 +33,7 @@ public class Homework {
         }
         System.out.println(strings2);
 
-        /*
+    /*
     3:
         1. Создай список слов, заполни его самостоятельно.
         2. Метод fix должен:
@@ -45,7 +44,7 @@ public class Homework {
 
       */
 
-        List<String> strings = new ArrayList<String>();
+        List<String> strings = new ArrayList<>();
         strings.add("роза");
         strings.add("лоза");
         strings.add("лира");
@@ -59,7 +58,7 @@ public class Homework {
           2. Метод doubleValues должен удваивать слова по принципу:
             "альфа","бета","гамма"->"альфа","альфа","бета","бета","гамма","гамма"
           3. Выведи результат на экран, каждое значение с новой строки.
-*/
+     */
         //Scanner scanner = new Scanner(System.in);
         List<String> strings4 = new ArrayList<>();
         System.out.println("Введите 10 слов через пробел: ");
@@ -71,9 +70,7 @@ public class Homework {
 
         List<String> outList = doubleValues(strings4);
 
-        for (
-                String s : outList
-        ) {
+        for (String s : outList) {
             System.out.println(s);
         }
 
