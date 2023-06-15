@@ -1,5 +1,7 @@
 package lessons.lesson15;
 
+import java.io.Console;
+import java.lang.constant.Constable;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
                     удалять из множества все числа больше 10.
 */
 public class Solution {
+
     public static Set<Integer> createSet() {
         Set<Integer> set = new TreeSet<>();
         Random random = new Random();
