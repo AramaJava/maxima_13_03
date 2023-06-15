@@ -4,7 +4,6 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /*  1
             Создать множество чисел(Set<Integer>), занести туда 20 различных чисел.
@@ -30,8 +29,7 @@ public class Solution {
     }
 
     public static Set<Integer> removeAllNumbersGreaterThan10(Set<Integer> set) {
-        Stream<Integer> stream = set.stream();
-        return stream.filter(x -> x <= 10).collect(Collectors.toSet());
+        return set.stream().filter(x -> x <= 10).collect(Collectors.toSet());
     }
 
     public static Set<Integer> removeAllNumbersGreaterThan10Ver2(Set<Integer> set) {
@@ -42,7 +40,7 @@ public class Solution {
     public static void main(String[] args) {
         Set<Integer> integers = createSet();
         System.out.println(integers);
-        System.out.println(removeAllNumbersGreaterThan10Ver2(integers));
+        System.out.println(removeAllNumbersGreaterThan10(integers));
     }
 }
 
