@@ -34,10 +34,15 @@ public class Solution {
         return stream.filter(x -> x <= 10).collect(Collectors.toSet());
     }
 
+    public static Set<Integer> removeAllNumbersGreaterThan10Ver2(Set<Integer> set) {
+        set.removeIf(n -> (n > 10));
+        return set;
+    }
+
     public static void main(String[] args) {
         Set<Integer> integers = createSet();
         System.out.println(integers);
-        System.out.println(removeAllNumbersGreaterThan10(integers));
+        System.out.println(removeAllNumbersGreaterThan10Ver2(integers));
     }
 }
 
