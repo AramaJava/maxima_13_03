@@ -23,5 +23,6 @@ public class Main {
         integers.add(345);
         integers.add(74);
         System.out.println(integers);
+
     }
 }
