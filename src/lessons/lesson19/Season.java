@@ -1,13 +1,13 @@
 package lessons.lesson19;
 
 public enum Season {
-    WINTER(1, "Зима"), SPRING(2,"Весна"), SUMMER(3, "Лето"), AUTUMN(4, "Осень");
+    WINTER(1, "Зима"), SPRING(2, "Весна"), SUMMER(3, "Лето"), AUTUMN(4, "Осень");
     private int numberOfSeason;
-    private String RussianName;
+    private String russianName;
 
     Season(int numberOfSeason, String russianName) {
         this.numberOfSeason = numberOfSeason;
-        this.RussianName = russianName;
+        this.russianName = russianName;
     }
 
     public int getNumberOfSeason() {
@@ -15,6 +15,6 @@ public enum Season {
     }
 
     public String getRussianName() {
-        return RussianName;
+        return russianName;
     }
 }
