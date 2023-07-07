@@ -1,6 +1,9 @@
 package lessons.lesson19;
 
+import lessons.lesson16.Fridge;
+
 public class Main {
+    @MethodInfo (purpose = "for example")
     public static void main(String[] args) {
         Season winter = Season.WINTER;
 
@@ -10,5 +13,9 @@ public class Main {
             case SUMMER -> System.out.println(winter.getRussianName());
             case AUTUMN -> System.out.println(winter.getRussianName());
         }
+
+        Fridge fridge = new Fridge();
+        fridge.putProducts("Bananas", 2);
+        
     }
 }

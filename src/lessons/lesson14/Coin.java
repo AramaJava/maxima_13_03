@@ -50,14 +50,26 @@ public class Coin implements Comparable<Coin> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Coin coin = (Coin) o;
 
-        if (nominal != coin.nominal) return false;
-        if (Double.compare(coin.diameter, diameter) != 0) return false;
-        if (year != coin.year) return false;
+        if (nominal != coin.nominal) {
+            return false;
+        }
+        if (Double.compare(coin.diameter, diameter) != 0) {
+            return false;
+        }
+        if (year != coin.year) {
+            return false;
+        }
+
         return Objects.equals(country, coin.country);
     }
 
