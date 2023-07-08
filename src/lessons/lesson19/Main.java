@@ -3,7 +3,6 @@ package lessons.lesson19;
 import lessons.lesson16.Fridge;
 
 public class Main {
-    @MethodInfo (purpose = "for example")
     public static void main(String[] args) {
         Season winter = Season.WINTER;
 

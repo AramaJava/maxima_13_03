@@ -178,7 +178,7 @@ public class Solution {
                 this.setWheels(Arrays.stream(loadWheelNamesFromDB()).
                         map(Wheel::valueOf).collect(Collectors.toList()));
             } catch (Exception ex) {
-                System.out.println("Что-то не то с колесами, то это не машина!");
+                System.out.println("Что-то не то с колесами, это не машина!");
             }
         }
 
