@@ -1,28 +1,44 @@
 package lessons.lesson9;
+
 import java.util.Random;
 import java.util.Scanner;
+
 public class TicTacToe {
 
-    static char[][] board;
-    public static int boardSize = 5;
-    public static int winCount = 4;
-    Scanner scan;
-    Random random;
+    private static char[][] board;
+    private static int boardSize = 4;
+    private static int winCount = 3;
+    private Scanner scan;
+    private Random random;
 
     public TicTacToe() {
         scan = new Scanner(System.in);
         random = new Random();
-        board = new char[boardSize][boardSize];
+        board = new char[boardSize + 1][boardSize + 1];
     }
 
     public static void initializeBoard() {
         // цикл по строкам
-        for (int i = 0; i < boardSize; i++) {
+        for (int i = 1; i < boardSize + 1; i++) {
             // цикл по столбцам
-            for (int j = 0; j < boardSize; j++) {
+            for (int j = 1; j < boardSize + 1; j++) {
                 board[i][j] = '.';
             }
         }
+    }
+
+    public void printBoard() {
+        System.out.println(" ------------------>X");
+
+        for (int i = 1; i < boardSize + 1; i++) {
+            System.out.print("| ");
+            for (int j = 1; j < boardSize + 1; j++) {
+                System.out.print(board[i][j] + " | ");
+            }
+            System.out.println();
+            System.out.println(" --------------------");
+        }
+        System.out.println("Y");
     }
 
     public void playGame() {
@@ -55,104 +71,34 @@ public class TicTacToe {
         }
     }
 
+    public void turnHuman() {
+        int x, y;
+
+        while (true) {
+            System.out.println("Введите х и y :");
+            y = scan.nextInt();
+            x = scan.nextInt();
+            if (isTurnValid(x, y, '.')) {
+                board[x][y] = 'x';
+                break;
+            } else {
+                System.out.println("Неверный ход!");
+            }
+
+        }
+    }
+
     public void turnAI() {
         int x, y;
 
         while (true) {
-            x = random.nextInt(0, 4);
-            y = random.nextInt(0, 4);
-            if (isTurnValid(x, y)) {
+            x = random.nextInt(1, 5);
+            y = random.nextInt(1, 5);
+            if (isTurnValid(x, y, '.')) {
                 board[x][y] = 'o';
                 break;
             }
         }
-    }
-
-    public boolean checkRowsForWin(char symbol, int winCount) {
-        return false;
-    }
-
-    public boolean checkColumnsForWin(char symbol, int winCount) {
-        return false;
-    }
-
-    public boolean checkDiagonalsForWin(char symbol, int winCount) {
-        return false;
-    }
-
-    public boolean checkWin(char symbol, int winCount) {
-      return checkRowsForWin(symbol, winCount) || checkColumnsForWin(symbol, winCount) || checkDiagonalsForWin(symbol, winCount);
-                /*
-//-- проверка по гориз
-
-        if (table[0][0] == symbol && table[0][1] == symbol && table[0][2] == symbol && table[0][3] == symbol)
-            return true;
-        if (table[0][1] == symbol && table[0][2] == symbol && table[0][3] == symbol && table[0][4] == symbol)
-            return true;
-        if (table[1][0] == symbol && table[1][1] == symbol && table[1][2] == symbol && table[1][3] == symbol)
-            return true;
-        if (table[1][1] == symbol && table[1][2] == symbol && table[1][3] == symbol && table[1][4] == symbol)
-            return true;
-        if (table[2][0] == symbol && table[2][1] == symbol && table[2][2] == symbol && table[2][3] == symbol)
-            return true;
-        if (table[2][1] == symbol && table[2][2] == symbol && table[2][3] == symbol && table[2][4] == symbol)
-            return true;
-        if (table[3][0] == symbol && table[3][1] == symbol && table[3][2] == symbol && table[3][3] == symbol)
-            return true;
-        if (table[3][1] == symbol && table[3][2] == symbol && table[3][3] == symbol && table[3][4] == symbol)
-            return true;
-        if (table[4][0] == symbol && table[4][1] == symbol && table[4][2] == symbol && table[4][3] == symbol)
-            return true;
-        if (table[4][1] == symbol && table[4][2] == symbol && table[4][3] == symbol && table[4][4] == symbol)
-            return true;
-//-- проверка по верт
-        if (table[0][0] == symbol && table[1][0] == symbol && table[2][0] == symbol && table[3][0] == symbol)
-            return true;
-        if (table[1][0] == symbol && table[2][0] == symbol && table[3][0] == symbol && table[4][0] == symbol)
-            return true;
-
-        if (table[0][1] == symbol && table[1][1] == symbol && table[2][1] == symbol && table[3][1] == symbol)
-            return true;
-        if (table[1][1] == symbol && table[2][1] == symbol && table[3][1] == symbol && table[4][1] == symbol)
-            return true;
-
-        if (table[0][2] == symbol && table[1][2] == symbol && table[2][2] == symbol && table[3][2] == symbol)
-            return true;
-        if (table[1][2] == symbol && table[2][2] == symbol && table[3][2] == symbol && table[4][2] == symbol)
-            return true;
-
-        if (table[0][3] == symbol && table[1][3] == symbol && table[2][3] == symbol && table[3][3] == symbol)
-            return true;
-        if (table[1][3] == symbol && table[2][3] == symbol && table[3][3] == symbol && table[4][3] == symbol)
-            return true;
-
-        if (table[0][4] == symbol && table[1][4] == symbol && table[2][4] == symbol && table[3][4] == symbol)
-            return true;
-        if (table[1][4] == symbol && table[2][4] == symbol && table[3][4] == symbol && table[4][4] == symbol)
-            return true;
-        //-- проверка по диаг
-        if (table[0][0] == symbol && table[1][1] == symbol && table[2][2] == symbol && table[3][3] == symbol)
-            return true;
-        if (table[1][1] == symbol && table[2][2] == symbol && table[3][3] == symbol && table[4][4] == symbol)
-            return true;
-
-        if (table[0][1] == symbol && table[1][2] == symbol && table[2][3] == symbol && table[3][4] == symbol)
-            return true;
-        if (table[1][0] == symbol && table[2][1] == symbol && table[3][2] == symbol && table[4][3] == symbol)
-            return true;
-
-        if (table[3][0] == symbol && table[2][1] == symbol && table[1][2] == symbol && table[0][3] == symbol)
-            return true;
-        if (table[4][1] == symbol && table[3][2] == symbol && table[2][3] == symbol && table[1][4] == symbol)
-            return true;
-
-        if (table[4][0] == symbol && table[3][1] == symbol && table[2][2] == symbol && table[1][3] == symbol)
-            return true;
-        if (table[3][1] == symbol && table[2][2] == symbol && table[1][3] == symbol && table[0][4] == symbol)
-            return true;
-        return false;
-    }
-*/
     }
 
     public boolean isTableFull() {
@@ -166,39 +112,95 @@ public class TicTacToe {
         return true;
     }
 
-    public void turnHuman() {
-        int x, y;
-
-        while (true) {
-            System.out.println("Введите х и y :");
-            x = scan.nextInt();
-            y = scan.nextInt();
-            if (isTurnValid(x, y)) {
-                board[x][y] = 'x';
-                break;
+    public boolean checkRowsForWin(char symbol, int winCount) {
+        int inRow = 0;
+        for (int y = 1; y < boardSize + 1; y++) {
+            for (int x = 1; x < boardSize + 1; x++) {
+                if (board[y][x] == symbol) {
+                    inRow++;
+                    if (inRow >= winCount) {
+                        return true;
+                    }
+                } else {
+                    inRow = 0;
+                }
             }
-
         }
+        return false;
     }
 
-    public boolean isTurnValid(int x, int y) {
-        if (x < 0 || x > boardSize - 1 || y < 0 || y > boardSize - 1) {
+    public boolean checkColumnsForWin(char symbol, int winCount) {
+        int inCol = 0;
+        for (int y = 1; y < boardSize + 1; y++) {
+            for (int x = 1; x < boardSize + 1; x++) {
+                if (board[x][y] == symbol) {
+                    inCol++;
+                    if (inCol >= winCount) {
+                        return true;
+                    }
+                } else {
+                    inCol = 0;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean checkDiagonalsForWin(char symbol) {
+
+        for (int i = 1; i < boardSize + 1; i++) {
+            for (int j = 1; j < boardSize + 1; j++) {
+                if (checkDiagonalForWin(symbol, i, j) || checkOtherDiagonalForWin(symbol, i, j)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean checkDiagonalForWin(char c, int row, int col) {
+        for (int inRow = 1; row  < boardSize + 1 && col < boardSize + 1; row++, col++) {
+            //Check all the rows for a winner
+            if (board[row][col] == c) {
+                inRow++;
+                if (inRow > winCount) {
+                    return true;
+                }
+            } else {
+                inRow = 0;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkOtherDiagonalForWin(char c, int row, int col) {
+        for (int inRow = 1; row  < boardSize && col >= 0; row++, col--) {
+            //Check all the rows for a winner
+            if (board[row][col] == c) {
+                inRow++;
+                if (inRow > winCount) {
+                    return true;
+                }
+            } else {
+                inRow = 0;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkWin(char symbol, int winCount) {
+        return checkRowsForWin(symbol, winCount) || checkColumnsForWin(symbol, winCount)
+                || checkDiagonalsForWin(symbol);
+
+    }
+
+    public boolean isTurnValid(int x, int y, char symbol) {
+
+        if (x < 1 || x > boardSize || y < 1 || y > boardSize
+                || (board[x][y] != (int) symbol)) {
             return false;
         }
         return board[x][y] == '.';
-    }
-
-    public void printBoard() {
-        System.out.println(" --------------------");
-
-        for (int i = 0; i < boardSize; i++) {
-            System.out.print("| ");
-            for (int j = 0; j < boardSize; j++) {
-                System.out.print(board[i][j] + " | ");
-            }
-            System.out.println();
-            System.out.println(" --------------------");
-        }
     }
 
 }
