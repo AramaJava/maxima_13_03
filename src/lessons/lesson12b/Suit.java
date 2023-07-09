@@ -5,7 +5,7 @@ public enum Suit {
     DIAMOND("♦ Буби"),
     CLUB("♣ Трефы"),
     SPADE("♠ Пики");
-    String suitName;
+    private final String suitName;
 
     Suit(String suitName) {
         this.suitName = suitName;
