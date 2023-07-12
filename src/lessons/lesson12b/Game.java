@@ -3,6 +3,7 @@ package lessons.lesson12b;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class Game {
     private Deck deck, discarded;
@@ -60,10 +61,11 @@ public class Game {
 
         dealer.getHand().discardHandToDeck(discarded);
 
-        for (Player p : players
+     /*    for (Player p : players
         ) {
             p.getHand().discardHandToDeck(discarded);
-        }
+        } */
+        players.forEach(player -> player.getHand().discardHandToDeck(discarded));
 
         if ((deck.cardsLeft()) < 4) {
             deck.reloadDeckFromDiscard(discarded);
@@ -72,12 +74,18 @@ public class Game {
         // выдаем по 2 карты крупье и каждому игроку
         dealer.getHand().takeCardFromDeck(deck);
         dealer.getHand().takeCardFromDeck(deck);
-
+/*
         for (Player p : players
         ) {
             p.getHand().takeCardFromDeck(deck);
             p.getHand().takeCardFromDeck(deck);
-        }
+        }*/
+
+        Stream<Player> stream = players.stream();
+        stream.forEach(player -> {
+            player.getHand().takeCardFromDeck(deck);
+            player.getHand().takeCardFromDeck(deck);
+        });
 
         //печатаем что на руках у каждого игрока и дилера
         dealer.printFirstHand();
