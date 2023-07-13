@@ -61,10 +61,12 @@ public class Game {
 
         dealer.getHand().discardHandToDeck(discarded);
 
-     /*    for (Player p : players
+      /* Заменил
+     for (Player p : players
         ) {
             p.getHand().discardHandToDeck(discarded);
         } */
+
         players.forEach(player -> player.getHand().discardHandToDeck(discarded));
 
         if ((deck.cardsLeft()) < 4) {
@@ -74,7 +76,8 @@ public class Game {
         // выдаем по 2 карты крупье и каждому игроку
         dealer.getHand().takeCardFromDeck(deck);
         dealer.getHand().takeCardFromDeck(deck);
-/*
+
+        /* Заменил на стрим
         for (Player p : players
         ) {
             p.getHand().takeCardFromDeck(deck);
@@ -91,10 +94,13 @@ public class Game {
         dealer.printFirstHand();
 
         //печатаем карты игроков
-        for (Player p : players
+    /*    for (Player p : players
         ) {
             p.printHand();
-        }
+        } */
+        Stream<Player> stream1 = players.stream();
+        stream1.forEach(Person::printHand);
+
         System.out.println("_____________________________");
 
         if (dealer.hasBlackjack()) {
